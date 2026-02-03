@@ -155,6 +155,85 @@ body {
     transform: translateY(0);
 }
 
+/* ===== HISTORY CONTAINER ===== */
+.history-container {
+    background: var(--bg-secondary);
+    border: 1px solid hsla(0, 0%, 100%, 0.05);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    max-height: 120px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.3);
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.history-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.history-container::-webkit-scrollbar-track {
+    background: hsla(0, 0%, 100%, 0.05);
+    border-radius: 2px;
+}
+
+.history-container::-webkit-scrollbar-thumb {
+    background: var(--accent-primary);
+    border-radius: 2px;
+}
+
+.history-container::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-secondary);
+}
+
+.history-container:empty {
+    display: none;
+}
+
+.history-item {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    background: hsla(0, 0%, 100%, 0.03);
+    border: 1px solid hsla(0, 0%, 100%, 0.05);
+    animation: historySlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: all 0.2s ease;
+}
+
+.history-item:hover {
+    background: hsla(0, 0%, 100%, 0.06);
+    border-color: hsla(0, 0%, 100%, 0.1);
+    cursor: pointer;
+}
+
+@keyframes historySlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.history-expression {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 2px;
+}
+
+.history-result {
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    text-align: right;
+}
+
 /* ===== DISPLAY ===== */
 .display-container {
     background: var(--bg-secondary);
@@ -193,6 +272,20 @@ body {
     word-wrap: break-word;
     overflow-wrap: break-word;
     font-weight: 400;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: slideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .result-display {
@@ -204,6 +297,23 @@ body {
     overflow-wrap: break-word;
     line-height: 1.2;
     letter-spacing: -0.02em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.15s ease;
+}
+
+.result-display.updating {
+    animation: fadeInScale 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0.7;
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .result-display.error {
