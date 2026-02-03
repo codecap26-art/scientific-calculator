@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Advanced scientific calculator with trigonometric, logarithmic, and exponential functions. Features memory storage, constants, and a beautiful modern interface.">
+    <title>Scientific Calculator - Advanced Mathematical Tool</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="calculator-header">
+                <h1>Scientific Calculator</h1>
+                <div class="mode-toggle">
+                    <button id="mode-toggle-btn" class="mode-btn" title="Toggle Degree/Radian mode">
+                        <span id="mode-text">DEG</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="display-container">
+                <div id="expression-display" class="expression-display"></div>
+                <div id="result-display" class="result-display">0</div>
+                <div id="memory-indicator" class="memory-indicator">M</div>
+            </div>
+
+            <div class="button-grid">
+                <!-- Row 1: Memory and Clear Functions -->
+                <button id="btn-mc" class="btn btn-memory" data-action="mc">MC</button>
+                <button id="btn-mr" class="btn btn-memory" data-action="mr">MR</button>
+                <button id="btn-m-plus" class="btn btn-memory" data-action="m+">M+</button>
+                <button id="btn-m-minus" class="btn btn-memory" data-action="m-">M-</button>
+                <button id="btn-ac" class="btn btn-clear" data-action="ac">AC</button>
+
+                <!-- Row 2: Scientific Functions -->
+                <button id="btn-sin" class="btn btn-function" data-function="sin">sin</button>
+                <button id="btn-cos" class="btn btn-function" data-function="cos">cos</button>
+                <button id="btn-tan" class="btn btn-function" data-function="tan">tan</button>
+                <button id="btn-del" class="btn btn-operator" data-action="del">DEL</button>
+                <button id="btn-divide" class="btn btn-operator" data-operator="/">÷</button>
+
+                <!-- Row 3: Inverse Trig + Numbers 7-9 -->
+                <button id="btn-asin" class="btn btn-function" data-function="asin">sin⁻¹</button>
+                <button id="btn-acos" class="btn btn-function" data-function="acos">cos⁻¹</button>
+                <button id="btn-atan" class="btn btn-function" data-function="atan">tan⁻¹</button>
+                <button id="btn-7" class="btn btn-number" data-number="7">7</button>
+                <button id="btn-8" class="btn btn-number" data-number="8">8</button>
+                <button id="btn-9" class="btn btn-number" data-number="9">9</button>
+                <button id="btn-multiply" class="btn btn-operator" data-operator="*">×</button>
+
+                <!-- Row 4: Logarithmic + Numbers 4-6 -->
+                <button id="btn-log" class="btn btn-function" data-function="log">log</button>
+                <button id="btn-ln" class="btn btn-function" data-function="ln">ln</button>
+                <button id="btn-exp" class="btn btn-function" data-function="exp">eˣ</button>
+                <button id="btn-4" class="btn btn-number" data-number="4">4</button>
+                <button id="btn-5" class="btn btn-number" data-number="5">5</button>
+                <button id="btn-6" class="btn btn-number" data-number="6">6</button>
+                <button id="btn-minus" class="btn btn-operator" data-operator="-">−</button>
+
+                <!-- Row 5: Power Functions + Numbers 1-3 -->
+                <button id="btn-square" class="btn btn-function" data-function="square">x²</button>
+                <button id="btn-cube" class="btn btn-function" data-function="cube">x³</button>
+                <button id="btn-power" class="btn btn-function" data-function="power">xʸ</button>
+                <button id="btn-1" class="btn btn-number" data-number="1">1</button>
+                <button id="btn-2" class="btn btn-number" data-number="2">2</button>
+                <button id="btn-3" class="btn btn-number" data-number="3">3</button>
+                <button id="btn-plus" class="btn btn-operator" data-operator="+">+</button>
+
+                <!-- Row 6: Root/Factorial + 0 and Decimal -->
+                <button id="btn-sqrt" class="btn btn-function" data-function="sqrt">√</button>
+                <button id="btn-cbrt" class="btn btn-function" data-function="cbrt">∛</button>
+                <button id="btn-factorial" class="btn btn-function" data-function="factorial">x!</button>
+                <button id="btn-0" class="btn btn-number btn-zero" data-number="0">0</button>
+                <button id="btn-decimal" class="btn btn-number" data-number=".">.</button>
+                <button id="btn-percent" class="btn btn-operator" data-action="percent">%</button>
+                <button id="btn-negate" class="btn btn-operator" data-action="negate">±</button>
+
+                <!-- Row 7: Constants, Parentheses and Equals -->
+                <button id="btn-pi" class="btn btn-constant" data-constant="pi">π</button>
+                <button id="btn-e" class="btn btn-constant" data-constant="e">e</button>
+                <button id="btn-open-paren" class="btn btn-operator" data-operator="(">(</button>
+                <button id="btn-close-paren" class="btn btn-operator" data-operator=")">)</button>
+                <button id="btn-equals" class="btn btn-equals" data-action="equals">=</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
